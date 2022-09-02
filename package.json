@@ -1,0 +1,16 @@
+{
+  "name": "ticket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "0xyToan\\n",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.10.3",
+    "hastebin": "^0.2.1",
+    "yaml-config": "^0.3.0"
+  }
+}

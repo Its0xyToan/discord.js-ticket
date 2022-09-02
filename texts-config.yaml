@@ -1,0 +1,28 @@
+ticket_panel:
+    title: "Ticket"
+    description: "Click on the button to open a new ticket !"
+    color: "#303030"
+    footer: "Made by 0xyToan"
+    buttons:
+        open_ticket: "Open a ticket"
+        open_ticket_style: "PRIMARY" # Don't modify this if you don't known what you are doing
+    confirmation: "Ticket has been successfully opened !"
+
+in_tickets:
+    title: "Ticket"
+    description: "Click on the button to close the ticket !"
+    color: "#303030"
+    footer: "Made by 0xyToan"
+    buttons:
+        close_ticket: "Close the ticket"
+        close_ticket_style: "DANGER" # Don't modify this if you don't known what you are doing
+
+support_control:
+    title: "Ticket"
+    description: "Support team control:"
+    color: "#303030"
+    buttons:
+        del_ticket: "Delete the ticket"
+        del_ticket_style: "DANGER" # Don't modify this if you don't known what you are doing
+        save_trans: "Save the transcript"
+        save_trans_style: "SUCCESS" # Don't modify this if you don't known what you are doing
