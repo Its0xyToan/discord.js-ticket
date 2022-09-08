@@ -15,7 +15,7 @@ client.on("ready", () => {
 client.on("messageCreate", message => {
         if(message.author.bot) return;
         if(message.member.permissions.has("MANAGE_MESSAGES")){
-        if(message.content === "!newticketpanel"){
+        if(message.content === "en!newticketpanel"){
    var row = new Discord.MessageActionRow()
         .addComponents(new Discord.MessageButton()
             .setCustomId("open-ticket")
@@ -30,7 +30,24 @@ client.on("messageCreate", message => {
         
         message.channel.send({ embeds: [Ticketembed], components: [row] });
         message.delete()
-}}});
+        }
+        else if(message.content.startsWith("en!ticketadd")) {
+            const member = message.mentions.members.first();
+            if(!member) return message.reply({content: ":x: | Merci de envoyer la mention ou l'id de la personne a ajouter au ticket !"})
+            message.channel.permissionOverwrites.edit(member, { VIEW_CHANNEL: true, SEND_MESSAGES: true}).then(message.reply(":white_check_mark: | J'ai bien ajouté <@"+member+"> au ticket !"));
+        }
+        else if(message.content.startsWith("en!ticketremove")) {
+            const member = message.mentions.members.first();
+            if(!member) return message.reply({content: ":x: | Merci de envoyer la mention ou l'id de la personne a retirer du ticket !"})
+            message.channel.permissionOverwrites.edit(member, { VIEW_CHANNEL: false, SEND_MESSAGES: false}).then(message.reply(":white_check_mark: | J'ai bien retiré <@"+member+"> du ticket !"));
+        }
+        else if(message.content.startsWith("en!help")) {
+            message.reply(":white_check_mark: | Help:\n`en!help` - Montre ce menu,\n`en!ticketadd` - Ajoute une personne au ticket,\n`en!ticketremove` - Retire une personne du ticket")
+        }
+    } else {
+        message.reply(":x: | Tu n'as pas la permission de faire sa !")
+    }
+});
     client.on("interactionCreate", interaction => {
         if(interaction.isButton()){
             if(interaction.customId === "open-ticket"){     
