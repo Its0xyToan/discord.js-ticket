@@ -45,7 +45,6 @@ client.on("messageCreate", message => {
             message.reply(":white_check_mark: | Help:\n`en!help` - Montre ce menu,\n`en!ticketadd` - Ajoute une personne au ticket,\n`en!ticketremove` - Retire une personne du ticket")
         }
     } else {
-        message.reply(":x: | Tu n'as pas la permission de faire sa !")
     }
 });
     client.on("interactionCreate", interaction => {
@@ -82,7 +81,7 @@ client.on("messageCreate", message => {
                        .setColor(text_ticket.color)
                        .setTitle(text_ticket.title)
                        .setDescription(text_ticket.description)
-                       channel.send({  content: `<@&${config.staff}>, <@${interaction.user.id}>`,embeds: [embed7], components: [row] }).then(msg =>{
+                       channel.send({  content: `<@${interaction.user.id}>`,embeds: [embed7], components: [row] }).then(msg =>{
                             msg.pin()
                         })
                         
@@ -150,8 +149,9 @@ client.on("messageCreate", message => {
                             client.channels.cache.get(config.logChannel).send({
                                 embeds: [embed]
                             });
-
-
+            client.users.cache.get(chan.topic).send({
+              embeds: [embed]
+            }).catch(() => {console.log('I cant send it DM')});
                         });
                 });
             }}    
@@ -161,5 +161,5 @@ client.on("messageCreate", message => {
 
 
 client.login(config.token).then(() => {
-    client.user.setPresence({ activities: [{ name: 'En cour de dev', type: 'PLAYING' }], status: 'idle' });
+    client.user.setPresence({ activities: [{ name: 'Eternode', type: 'PLAYING' }], status: 'online' });
 });
