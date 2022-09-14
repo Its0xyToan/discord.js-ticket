@@ -2,6 +2,7 @@
 
 A simple home-made ticket bot with hastebin transcript !
 
+EterNode support ;)
 
 ## Authors
 
